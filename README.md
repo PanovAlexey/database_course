@@ -10,3 +10,4 @@
 ```
 # Этапы
 1. [[Task 1]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK01.md)
+1. [[Task 2]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK01.md)
