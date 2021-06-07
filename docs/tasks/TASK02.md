@@ -50,4 +50,76 @@
 
 ---
 
+## Список необходимых ограничений (constraints).
+Список ранее озвученных первичных и внешних ключей составляют существенную долю
+ограничений. Однако, для повышения целостности данных и надежности работы сервиса
+необходимо добавить следующий список ограничений:
+- таблица _products_, поле price - **NOT NULL**, **CHECK (price>0)**
+- таблица _products_, поле name - **NOT NULL**, **UNIQUE**
+
+
+- таблица _baskets_, поле user - **NOT NULL**
+- таблица _baskets_, поле orders - **NOT NULL**, **UNIQUE**
+- таблица _baskets_, поле product - **NOT NULL**
+
+
+- таблица _orders_, поле price - **NOT NULL**, **CHECK (price>0)**
+- таблица _orders_, поле user - **NOT NULL**
+
+
+- таблица _events_, поле created_at - **NOT NULL**
+- таблица _events_, поле country_id - **NOT NULL**
+- таблица _events_, поле region_id - **NOT NULL**
+
+
+- таблица _users_, поле email - **NOT NULL**, **UNIQUE**
+- таблица _users_, поле phone - **NOT NULL**, **UNIQUE**
+
+
+- таблица _roles_, поле name- **UNIQUE**
+- таблица _roles_, поле created_at - **NOT NULL**
+
+
+- таблица _role_user_, поле role_id - **NOT NULL**
+- таблица _role_user_, поле user_id - **NOT NULL**
+
+
+- таблица _articles_, поле created_at - **NOT NULL**
+- таблица _articles_, поле name - **NOT NULL**, **UNIQUE**
+
+
+- таблица _news_, поле created_at - **NOT NULL**
+- таблица _news_, поле name - **NOT NULL**, **UNIQUE**
+
+
+- таблица _language_, поле name - **NOT NULL**, **UNIQUE**
+- таблица _language_, поле code - **NOT NULL**, **UNIQUE**
+
+
+- таблица _pictures_, поле created_at - **NOT NULL**
+- таблица _pictures_, поле path - **NOT NULL**, **UNIQUE**
+
+- таблица _event_pictures_, поле created_at - **NOT NULL**
+
+
+- таблица _event_statuses_, поле created_at - **NOT NULL**
+- таблица _event_statuses_, поле name - **NOT NULL**, **UNIQUE**
+
+
+- таблица _event_user_, поле is_successful - **NOT NULL**
+
+
+- таблица _password_resets_, поле created_at - **NOT NULL**
+- таблица _password_resets_, поле email - **NOT NULL**
+- таблица _password_resets_, поле token - **NOT NULL**, **UNIQUE**
+
+
+- таблица _comments_, поле created_at - **NOT NULL**
+- таблица _comments_, поле active - **NOT NULL**
+- таблица _comments_, поле commentable_id - **NOT NULL**
+- таблица _comments_, поле commentable_type - **NOT NULL**
+- таблица _comments_, поле user_id - **NOT NULL**
+
+---
+
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
