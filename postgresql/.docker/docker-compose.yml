@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: "user_password"
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - ../2. Init Database:/docker-entrypoint-initdb.d
+      - ../init:/docker-entrypoint-initdb.d
       - .:/var/lib/postgresql/data
     ports:
       - "54320:5432"
@@ -24,26 +24,6 @@ services:
         limits:
           cpus: '1'
           memory: 4G
-    networks:
-      - postgres_net
-
-  pgadmin:
-    container_name: pgadmin_container
-    image: dpage/pgadmin4:5.7
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "panov@codeblog.pro"
-      PGADMIN_DEFAULT_PASSWORD: "pgadminpwd"
-      PGADMIN_CONFIG_SERVER_MODE: "False"
-    volumes:
-      - ./pgadmin:/var/lib/pgadmin
-    ports:
-      - "5051:80"
-    restart: always
-    deploy:
-      resources:
-        limits:
-          cpus: '1'
-          memory: 1G
     networks:
       - postgres_net
 
