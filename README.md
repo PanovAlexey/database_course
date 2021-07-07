@@ -8,6 +8,8 @@
 Это стало возможным благодаря объединению людей, нуждающихся в помощи, активного 
 сообщества автомобилистов.
 ```
+
 # Этапы
 1. [[Task 1]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK01.md)
-1. [[Task 2]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK01.md)
+2. [[Task 2]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK02.md)
+3. [[Task 3]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK03.md)
