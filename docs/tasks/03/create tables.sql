@@ -20,3 +20,16 @@ create table if not exists service.failed_jobs
 );
 
 alter table service.failed_jobs owner to icarhelper_user;
+
+/* data.event_statuses */
+create table if not exists data.event_statuses
+(
+    id bigserial constraint event_statuses_pk primary key,
+    created_at timestamp not null,
+    updated_at timestamp,
+    name varchar(255) not null
+    );
+
+alter table data.event_statuses owner to icarhelper_user;
+
+create unique index if not exists event_statuses_name_uindex on data.event_statuses (name);
