@@ -33,3 +33,16 @@ create table if not exists data.event_statuses
 alter table data.event_statuses owner to icarhelper_user;
 
 create unique index if not exists event_statuses_name_uindex on data.event_statuses (name);
+
+/* data.event_types */
+create table if not exists data.event_types
+(
+    id bigint not null constraint event_types_pk primary key,
+    name varchar(255) not null,
+    created_at timestamp not null,
+    updated_at timestamp
+    );
+
+alter table data.event_types owner to icarhelper_user;
+
+create unique index if not exists event_types_name_uindex on data.event_types (name);
