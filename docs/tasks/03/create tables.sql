@@ -80,3 +80,19 @@ create unique index if not exists countries_iso_3166_1_alpha3_uindex on data.cou
 create unique index if not exists countries_iso_3166_1_numeric_uindex on data.countries (iso_3166_1_numeric);
 create unique index if not exists countries_name_ru_uindex on data.countries (name_ru);
 create unique index if not exists countries_native_name_uindex on data.countries (native_name);
+
+/* data.regions */
+create table if not exists data.regions
+(
+    id bigint not null constraint regions_pk primary key,
+    country_id bigint not null constraint countries___fk references data.countries on delete cascade,
+    name_ru varchar(255) not null,
+    name_en varchar(255) not null,
+    iso_3166_2 varchar(255) not null,
+    iso_a3 varchar(255) not null,
+    postal varchar(255) not null,
+    lat double precision not null,
+    long double precision not null
+    );
+
+alter table data.regions owner to icarhelper_user;
