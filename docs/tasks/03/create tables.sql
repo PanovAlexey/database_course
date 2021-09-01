@@ -59,3 +59,24 @@ create table if not exists data.roles
 alter table data.roles owner to icarhelper_user;
 
 create unique index if not exists roles_name_uindex on data.roles (name);
+
+/* data.countries */
+create table if not exists data.countries
+(
+    id bigint not null constraint countries_pk primary key,
+    common_name varchar(255) not null,
+    native_name varchar(255) not null,
+    name_ru varchar(255) not null,
+    iso_3166_1_alpha3 varchar(255) not null,
+    iso_3166_1_numeric smallint not null,
+    phone_code varchar(255) not null,
+    flag varchar(255) not null
+    );
+
+alter table data.countries owner to icarhelper_user;
+
+create unique index if not exists countries_common_name_uindex on data.countries (common_name);
+create unique index if not exists countries_iso_3166_1_alpha3_uindex on data.countries (iso_3166_1_alpha3);
+create unique index if not exists countries_iso_3166_1_numeric_uindex on data.countries (iso_3166_1_numeric);
+create unique index if not exists countries_name_ru_uindex on data.countries (name_ru);
+create unique index if not exists countries_native_name_uindex on data.countries (native_name);
