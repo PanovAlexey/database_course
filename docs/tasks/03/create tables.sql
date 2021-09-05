@@ -96,3 +96,19 @@ create table if not exists data.regions
     );
 
 alter table data.regions owner to icarhelper_user;
+
+/* data.languages */
+create table if not exists data.languages
+(
+    id bigint not null constraint languages_pk primary key,
+    deleted_at timestamp,
+    name varchar(255) not null,
+    code varchar(255) not null,
+    country_id bigint constraint languages_countries_id_fk references data.countries
+    );
+
+alter table data.languages owner to icarhelper_user;
+
+create unique index if not exists languages_code_uindex on data.languages (code);
+create unique index if not exists languages_country_id_uindex on data.languages (country_id);
+create unique index if not exists languages_name_uindex on data.languages (name);
