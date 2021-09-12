@@ -112,3 +112,14 @@ alter table data.languages owner to icarhelper_user;
 create unique index if not exists languages_code_uindex on data.languages (code);
 create unique index if not exists languages_country_id_uindex on data.languages (country_id);
 create unique index if not exists languages_name_uindex on data.languages (name);
+
+/* data.pictures */
+create table if not exists data.pictures
+(
+    id bigint not null constraint pictures_pk primary key,
+    created_at timestamp not null,
+    updated_at timestamp,
+    path varchar(255) not null
+    );
+
+alter table data.pictures owner to icarhelper_user;
