@@ -139,3 +139,19 @@ create table if not exists data.news
 alter table data.news owner to icarhelper_user;
 
 create unique index if not exists news_name_uindex on data.news (name);
+
+/* data.articles */
+create table if not exists data.articles
+(
+    id bigint not null constraint articles_pk primary key,
+    created_at timestamp not null,
+    updated_at timestamp,
+    deleted_at timestamp,
+    name varchar(255) not null,
+    description text not null,
+    picture_id bigint constraint articles_pictures_id_fk references data.pictures
+    );
+
+alter table data.articles owner to icarhelper_user;
+
+create unique index if not exists articles_name_uindex on data.articles (name);
