@@ -155,3 +155,33 @@ create table if not exists data.articles
 alter table data.articles owner to icarhelper_user;
 
 create unique index if not exists articles_name_uindex on data.articles (name);
+
+/* data.users */
+create table if not exists data.users
+(
+    id bigint not null constraint users_pk primary key,
+    deleted_at timestamp,
+    active boolean not null,
+    name varchar(255) not null,
+    last_name varchar(255) not null,
+    country_id bigint not null,
+    created_user_id bigint constraint users_users_id_fk references data.users,
+    region_id bigint not null constraint users_regions_id_fk references data.regions,
+    locality varchar(255),
+    email varchar(255) not null,
+    email_verified_at timestamp,
+    phone varchar(255) not null,
+    phone_verified_at timestamp,
+    password varchar(255) not null,
+    timezone varchar(255),
+    api_token varchar(80),
+    picture_id bigint constraint users_pictures_id_fk references data.pictures,
+    remember_token varchar(100),
+    created_at timestamp not null,
+    updated_at timestamp
+    );
+
+alter table data.users owner to icarhelper_user;
+
+create unique index if not exists users_email_uindex on data.users (email);
+create unique index if not exists users_phone_uindex on data.users (phone);
