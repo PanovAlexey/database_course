@@ -207,3 +207,14 @@ create table if not exists data.orders
     );
 
 alter table data.orders owner to icarhelper_user;
+
+/* data.baskets */
+create table if not exists data.baskets
+(
+    id bigint not null constraint baskets_pk primary key,
+    user_id bigint not null constraint baskets_users_id_fk references data.users,
+    order_id bigint not null constraint baskets_orders_id_fk references data.orders,
+    product_id bigint not null constraint baskets_products_id_fk references data.products
+);
+
+alter table data.baskets owner to icarhelper_user;
