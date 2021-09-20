@@ -235,4 +235,23 @@ create table if not exists data.comments
     );
 
 alter table data.comments owner to icarhelper_user;
- 
+
+/* data.events */
+create table if not exists data.events
+(
+    id bigint not null constraint events_pk primary key,
+    deleted_at timestamp,
+    created_at timestamp not null,
+    updated_at timestamp,
+    description text not null,
+    author_id bigint not null constraint events_users_id_fk references data.users,
+    type_id bigint not null constraint events_event_types_id_fk references data.event_types,
+    status_id bigint not null constraint events_event_statuses_id_fk references data.event_statuses,
+    region_id bigint not null constraint events_regions_id_fk references data.regions,
+    locality varchar(255) not null,
+    unpublish_note varchar(255),
+    lat double precision,
+    long double precision
+    );
+
+alter table data.events owner to icarhelper_user;
