@@ -197,3 +197,13 @@ create table if not exists data.products
 alter table data.products owner to icarhelper_user;
 
 create unique index if not exists products_name_uindex on data.products (name);
+
+/* data.orders */
+create table if not exists data.orders
+(
+    id bigint not null constraint orders_pkey primary key,
+    price numeric(10, 2) not null check (price>0),
+    user_id bigint not null constraint orders_users_id_fk references data.users
+    );
+
+alter table data.orders owner to icarhelper_user;
