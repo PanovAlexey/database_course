@@ -218,3 +218,21 @@ create table if not exists data.baskets
 );
 
 alter table data.baskets owner to icarhelper_user;
+
+/* data.comments */
+create table if not exists data.comments
+(
+    id bigint not null constraint comments_pk primary key,
+    deleted_at timestamp,
+    created_at timestamp not null,
+    updated_at timestamp,
+    active boolean not null,
+    parent_id bigint constraint comments_comments_id_fk references data.comments,
+    commentable_id bigint not null,
+    commentable_type varchar(255) not null,
+    user_id bigint not null constraint comments_users_id_fk references data.users,
+    text text not null
+    );
+
+alter table data.comments owner to icarhelper_user;
+ 
