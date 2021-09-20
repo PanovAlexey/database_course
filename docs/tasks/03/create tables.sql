@@ -185,3 +185,15 @@ alter table data.users owner to icarhelper_user;
 
 create unique index if not exists users_email_uindex on data.users (email);
 create unique index if not exists users_phone_uindex on data.users (phone);
+
+/* data.products */
+create table if not exists data.products
+(
+    id bigint not null constraint products_pk primary key,
+    price numeric(10,2) not null check (price>0),
+    name varchar(45) not null
+    );
+
+alter table data.products owner to icarhelper_user;
+
+create unique index if not exists products_name_uindex on data.products (name);
