@@ -268,4 +268,16 @@ create table if not exists data.event_user
 );
 
 alter table data.event_user owner to icarhelper_user;
+
+/* data.role_user */
+create table if not exists data.role_user
+(
+    id bigint not null constraint role_user_pk primary key,
+    role_id bigint constraint role_user_roles_id_fk references data.roles,
+    user_id bigint constraint role_user_users_id_fk references data.users,
+    created_at timestamp not null,
+    updated_at bigint
+);
+
+alter table data.role_user owner to icarhelper_user;
  
