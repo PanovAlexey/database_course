@@ -9,20 +9,20 @@
 
 ### Создание БД
 
-[код создания базы данных](03/create database.sql)
+[код создания базы данных](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/03/create%20database.sql)
 
 ---
 
 ### Создание схем БД и ролей
 
-[код создания роли](03/create role.sql)
-[код создания схемы](03/create schema.sql)
+[код создания роли](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/03/create%20role.sql)
+[код создания схемы](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/03/create%20schema.sql)
 
 ---
 
 ### Создание таблиц
 
-[код создания схемы](03/create tables.sql)
+[код создания схемы](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/03/create%20tables.sql)
 
 ---
 
