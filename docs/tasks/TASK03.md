@@ -16,6 +16,9 @@
 ### Создание схем БД и ролей
 
 [код создания роли](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/03/create%20role.sql)
+
+<hr>
+
 [код создания схемы](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/03/create%20schema.sql)
 
 ---
