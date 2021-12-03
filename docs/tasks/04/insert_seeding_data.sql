@@ -2017,3 +2017,10 @@ values  (1, null, 'english', 'en', null),
         (2, null, 'русский', 'ru', null),
         (3, null, 'українська', 'ukr', null),
         (4, null, '中文', 'zho', null);
+
+/* data.roles */
+insert into data.roles (id, name, created_at)
+values  (1, 'administrators', CURRENT_TIMESTAMP),
+        (2, 'moderators', CURRENT_TIMESTAMP);
+
+ 
