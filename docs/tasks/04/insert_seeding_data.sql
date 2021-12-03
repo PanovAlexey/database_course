@@ -2011,3 +2011,9 @@ values  (1, 1, 'Фиери', 'Fier County', 'AL-04', 'ALB', '04', 40.92, 19.66),
         (1926, 63, 'Хайфон', 'Haiphong', 'VN-HP', 'VNM', 'HP', 20.79, 106.64),
         (1927, 63, 'Хошимин', 'Ho Chi Minh City', 'VN-SG', 'VNM', 'SG', 10.41, 106.93);
 
+/* data.languages */
+insert into data.languages (id, deleted_at, name, code, country_id)
+values  (1, null, 'english', 'en', null),
+        (2, null, 'русский', 'ru', null),
+        (3, null, 'українська', 'ukr', null),
+        (4, null, '中文', 'zho', null);
