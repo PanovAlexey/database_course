@@ -37,7 +37,7 @@ create unique index if not exists event_statuses_name_uindex on data.event_statu
 /* data.event_types */
 create table if not exists data.event_types
 (
-    id bigint not null constraint event_types_pk primary key,
+    id int not null constraint event_types_pk primary key,
     name varchar(255) not null,
     created_at timestamp not null,
     updated_at timestamp
@@ -50,7 +50,7 @@ create unique index if not exists event_types_name_uindex on data.event_types (n
 /* data.roles */
 create table if not exists data.roles
 (
-    id bigint not null constraint roles_pk primary key,
+    id int not null constraint roles_pk primary key,
     name varchar(255) not null,
     created_at timestamp not null,
     updated_at timestamp
@@ -63,7 +63,7 @@ create unique index if not exists roles_name_uindex on data.roles (name);
 /* data.countries */
 create table if not exists data.countries
 (
-    id bigint not null constraint countries_pk primary key,
+    id int not null constraint countries_pk primary key,
     common_name varchar(255) not null,
     native_name varchar(255) not null,
     name_ru varchar(255) not null,
@@ -84,8 +84,8 @@ create unique index if not exists countries_native_name_uindex on data.countries
 /* data.regions */
 create table if not exists data.regions
 (
-    id bigint not null constraint regions_pk primary key,
-    country_id bigint not null constraint countries___fk references data.countries on delete cascade,
+    id int not null constraint regions_pk primary key,
+    country_id int not null constraint countries___fk references data.countries on delete cascade,
     name_ru varchar(255) not null,
     name_en varchar(255) not null,
     iso_3166_2 varchar(255) not null,
@@ -100,11 +100,11 @@ alter table data.regions owner to icarhelper_user;
 /* data.languages */
 create table if not exists data.languages
 (
-    id bigint not null constraint languages_pk primary key,
+    id int not null constraint languages_pk primary key,
     deleted_at timestamp,
     name varchar(255) not null,
     code varchar(255) not null,
-    country_id bigint constraint languages_countries_id_fk references data.countries
+    country_id int constraint languages_countries_id_fk references data.countries
     );
 
 alter table data.languages owner to icarhelper_user;
@@ -127,7 +127,7 @@ alter table data.pictures owner to icarhelper_user;
 /* data.news */
 create table if not exists data.news
 (
-    id bigint not null constraint news_pk primary key,
+    id int not null constraint news_pk primary key,
     created_at timestamp not null,
     updated_at timestamp,
     deleted_at timestamp,
@@ -143,7 +143,7 @@ create unique index if not exists news_name_uindex on data.news (name);
 /* data.articles */
 create table if not exists data.articles
 (
-    id bigint not null constraint articles_pk primary key,
+    id int not null constraint articles_pk primary key,
     created_at timestamp not null,
     updated_at timestamp,
     deleted_at timestamp,
@@ -159,14 +159,14 @@ create unique index if not exists articles_name_uindex on data.articles (name);
 /* data.users */
 create table if not exists data.users
 (
-    id bigint not null constraint users_pk primary key,
+    id int not null constraint users_pk primary key,
     deleted_at timestamp,
     active boolean not null,
     name varchar(255) not null,
     last_name varchar(255) not null,
-    country_id bigint not null,
-    created_user_id bigint constraint users_users_id_fk references data.users,
-    region_id bigint not null constraint users_regions_id_fk references data.regions,
+    country_id int not null,
+    created_user_id int constraint users_users_id_fk references data.users,
+    region_id int not null constraint users_regions_id_fk references data.regions,
     locality varchar(255),
     email varchar(255) not null,
     email_verified_at timestamp,
@@ -189,7 +189,7 @@ create unique index if not exists users_phone_uindex on data.users (phone);
 /* data.products */
 create table if not exists data.products
 (
-    id bigint not null constraint products_pk primary key,
+    id int not null constraint products_pk primary key,
     price numeric(10,2) not null check (price>0),
     name varchar(45) not null
     );
@@ -201,9 +201,9 @@ create unique index if not exists products_name_uindex on data.products (name);
 /* data.orders */
 create table if not exists data.orders
 (
-    id bigint not null constraint orders_pkey primary key,
+    id int not null constraint orders_pkey primary key,
     price numeric(10, 2) not null check (price>0),
-    user_id bigint not null constraint orders_users_id_fk references data.users
+    user_id int not null constraint orders_users_id_fk references data.users
     );
 
 alter table data.orders owner to icarhelper_user;
@@ -211,10 +211,10 @@ alter table data.orders owner to icarhelper_user;
 /* data.baskets */
 create table if not exists data.baskets
 (
-    id bigint not null constraint baskets_pk primary key,
-    user_id bigint not null constraint baskets_users_id_fk references data.users,
-    order_id bigint not null constraint baskets_orders_id_fk references data.orders,
-    product_id bigint not null constraint baskets_products_id_fk references data.products
+    id int not null constraint baskets_pk primary key,
+    user_id int not null constraint baskets_users_id_fk references data.users,
+    order_id int not null constraint baskets_orders_id_fk references data.orders,
+    product_id int not null constraint baskets_products_id_fk references data.products
 );
 
 alter table data.baskets owner to icarhelper_user;
@@ -230,7 +230,7 @@ create table if not exists data.comments
     parent_id bigint constraint comments_comments_id_fk references data.comments,
     commentable_id bigint not null,
     commentable_type varchar(255) not null,
-    user_id bigint not null constraint comments_users_id_fk references data.users,
+    user_id int not null constraint comments_users_id_fk references data.users,
     text text not null
     );
 
@@ -244,10 +244,10 @@ create table if not exists data.events
     created_at timestamp not null,
     updated_at timestamp,
     description text not null,
-    author_id bigint not null constraint events_users_id_fk references data.users,
-    type_id bigint not null constraint events_event_types_id_fk references data.event_types,
-    status_id bigint not null constraint events_event_statuses_id_fk references data.event_statuses,
-    region_id bigint not null constraint events_regions_id_fk references data.regions,
+    author_id int not null constraint events_users_id_fk references data.users,
+    type_id int not null constraint events_event_types_id_fk references data.event_types,
+    status_id int not null constraint events_event_statuses_id_fk references data.event_statuses,
+    region_id int not null constraint events_regions_id_fk references data.regions,
     locality varchar(255) not null,
     unpublish_note varchar(255),
     lat double precision,
@@ -261,7 +261,7 @@ create table if not exists data.event_user
 (
     id bigint not null constraint event_user_pk primary key,
     event_id bigint not null constraint event_user_events_id_fk references data.events,
-    user_id bigint not null constraint event_user_users_id_fk references data.users,
+    user_id int not null constraint event_user_users_id_fk references data.users,
     is_successful boolean not null,
     created_at timestamp not null,
     updated_at timestamp
@@ -272,11 +272,11 @@ alter table data.event_user owner to icarhelper_user;
 /* data.role_user */
 create table if not exists data.role_user
 (
-    id bigint not null constraint role_user_pk primary key,
-    role_id bigint constraint role_user_roles_id_fk references data.roles,
-    user_id bigint constraint role_user_users_id_fk references data.users,
+    id int not null constraint role_user_pk primary key,
+    role_id int constraint role_user_roles_id_fk references data.roles,
+    user_id int constraint role_user_users_id_fk references data.users,
     created_at timestamp not null,
-    updated_at bigint
+    updated_at timestamp
 );
 
 alter table data.role_user owner to icarhelper_user;
