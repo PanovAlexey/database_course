@@ -1,7 +1,9 @@
 # Task 1
 
 ## Схема
-[Ссылка на Draw.io](https://drive.google.com/file/d/1-felb2X9k7G9-wWmCC-0Hy1AlcS4pyfT/view)
+[Ссылка на sqldbm (требуется авторизация)](https://app.sqldbm.com/MySQL/Edit/p195366/)
+Логин: "wgw64138@boofx.com"
+Пароль: "sdfLK359sdj"
 ---
 
 ### Описание БД
