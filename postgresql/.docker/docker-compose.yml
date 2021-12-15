@@ -19,3 +19,8 @@ services:
       timeout: 45s
       interval: 2s
       retries: 10
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G
