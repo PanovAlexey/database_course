@@ -24,6 +24,8 @@ services:
         limits:
           cpus: '1'
           memory: 4G
+    networks:
+      - postgres_net
 
   pgadmin:
     container_name: pgadmin_container
@@ -42,3 +44,9 @@ services:
         limits:
           cpus: '1'
           memory: 1G
+    networks:
+      - postgres_net
+
+networks:
+  postgres_net:
+    driver: bridge
