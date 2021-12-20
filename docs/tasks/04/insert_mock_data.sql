@@ -304,3 +304,17 @@ values
     (59, 54, 8, false, '2020-09-29 13:11:07'),
     (60, 60, 8, false, '2020-09-29 13:20:26'),
     (61, 60, 9, false, '2020-09-29 14:02:37');
+
+/* data.event_picture */
+insert into
+    data.event_picture (id, created_at, event_id, picture_id)
+values
+    (1, CURRENT_TIMESTAMP, 55, 73),
+    (2, CURRENT_TIMESTAMP, 10, 76),
+    (3, CURRENT_TIMESTAMP, 54, 78),
+    (4, CURRENT_TIMESTAMP, 54, 80),
+    (5, CURRENT_TIMESTAMP, 56, 82),
+    (6, CURRENT_TIMESTAMP, 57, 83),
+    (7, CURRENT_TIMESTAMP, 58, 84),
+    (8, CURRENT_TIMESTAMP, 59, 157),
+    (9, CURRENT_TIMESTAMP, 60, 157);
