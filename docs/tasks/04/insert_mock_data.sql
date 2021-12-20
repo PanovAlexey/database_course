@@ -318,6 +318,7 @@ values
     (7, CURRENT_TIMESTAMP, 58, 84),
     (8, CURRENT_TIMESTAMP, 59, 157),
     (9, CURRENT_TIMESTAMP, 60, 157);
+
 /* data.role_user */
 insert into data.role_user
     (id, role_id, user_id, created_at)
@@ -334,3 +335,14 @@ values
     (10, 1, 1, '2020-09-28 20:00:47'),
     (11, 1, 106, '2020-09-28 20:00:47'),
     (12, 2, 107, '2020-09-28 20:00:47');
+
+/* data.comments */
+insert into data.comments
+    (deleted_at, id, created_at, updated_at, active, parent_id, commentable_id, commentable_type, user_id, text)
+values
+    (null, 1, '2020-09-28 20:00:47', '2020-09-28 20:00:51', true, null, 46, 'App\\Models\\Event', 32, 'Ipsa quidem qui praesentium vitae. Nesciunt impedit sequi molestiae placeat alias id et. Ratione consectetur et assumenda et. Deleniti ea sint omnis dolore ut.'),
+    (null, 2, '2020-09-28 20:00:47', '2020-09-28 20:00:50', false, 1, 42, 'App\\Models\\Event', 47, 'Deserunt doloribus molestias minus corporis. Et expedita ut amet laudantium autem. Eaque exercitationem ut repellat modi ut beatae non.'),
+    (null, 3, '2020-09-28 20:00:47', '2020-09-28 20:00:49', false, null, 25, 'App\\Models\\Event', 28, 'Quia autem ipsum deleniti. Autem neque dignissimos nulla optio ut. Qui dolor facilis rerum maxime sit rem voluptatem. Totam reiciendis ipsum tempore enim voluptas sunt. Eum maxime doloremque rerum quod. Vel maiores sunt a vel necessitatibus.'),
+    (null, 4, '2020-09-28 20:00:47', '2020-09-28 20:00:52', false, null, 19, 'App\\Models\\Event', 45, 'Aliquam ipsa placeat consequuntur commodi nihil consequatur voluptas. Et quia eos in ut. Eos commodi eligendi fuga autem unde est. Adipisci laborum nobis quo nobis quo placeat quae.'),
+    (null, 120, '2020-09-29 13:20:18', '2020-09-29 13:21:25', true, null, 60, 'App\\Models\\Event', 16, 'Он 200 000 по новому курсу стоит... Могу одолжить только на день - в моем присутствии.'),
+    (null, 121, '2020-09-29 13:21:25', '2020-09-29 13:21:25', true, 120, 60, 'App\\Models\\Event', 17, 'На АлиЭкспресс уже есть аналог за 15 000.');
