@@ -13,4 +13,9 @@
 
 ---
 
+### Наполнение БД тестовыми данными
+
+[код наполнения БД тестовыми данными](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/04/insert_mock_data.sql)
+
+---
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
