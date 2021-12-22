@@ -1,0 +1,1 @@
+SELECT * FROM data.regions WHERE regions.name_ru SIMILAR TO 'А[А-Яа-я]{2,10} край';
