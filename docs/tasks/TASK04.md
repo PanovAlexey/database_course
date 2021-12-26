@@ -30,4 +30,17 @@
 ![img.png](04/img.png)
 ---
 
+### Запрос с использованием LEFT JOIN и INNER JOIN
+
+[код запроса с использованием LEFT JOIN и INNER JOIN](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/04/join.sql)
+
+При использовании _left join_ выводятся, в том числе пользователи, для которых не удалось получить информацию
+о стране. Значение равняется _null_. 
+![img.png](img.png)
+
+При замене _left join_ на _inner join_ выводятся только записи, для которых удалось найти совпадение
+во всех таблицах.
+
+---
+
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
