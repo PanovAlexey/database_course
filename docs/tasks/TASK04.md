@@ -43,4 +43,12 @@
 
 ---
 
+### Запрос с использованием UPDATE FROM
+
+Изменение фамилии у неактивных пользователей на название страны, которой соответствует их профиль.
+
+[код запроса с использованием UPDATE FROM](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/04/update_from.sql)
+
+![img_1.png](04/img_1.png)
+
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
