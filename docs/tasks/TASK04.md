@@ -53,4 +53,17 @@
 
 ![img_1.png](04/img_1.png)
 
+---
+
+### Запрос с использованием DELETE и join с другой таблицей с помощью using
+
+Удаление пользователя, который уже неактивен и для которого существует событие в том же регионе, где он находится.
+
+[код запроса на удаление с использованием join и using](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/04/delete_using_json.sql)
+
+![img_4.png](04/img_4.png)
+
+---
+ 
+
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
