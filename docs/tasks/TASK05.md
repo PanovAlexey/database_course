@@ -44,5 +44,31 @@ Index Cond: (created_at = '2022-04-11 04:41:07.445285'::timestamp without time z
 
 ---
 
+### Использование полнотекстового индекса
+
+Запрос с поиском через _LIKE_ в середине строки:
+![img_5.png](05/img_5.png)
+
+Запрос с поиском через _LIKE_ в начале строки:
+![img_6.png](05/img_6.png)
+
+Запрос с использованием _to_tsvector_ для полнотекстового поиска:
+![img_7.png](05/img_7.png)
+
+Для построения полнотекстового индекса по полю _description_ использовался следующий код:
+[full-text indexes](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/text_indexes.sql)
+
+Размер текстового индекса составил более 1.6 гигабайт.
+![img_8.png](05/img_8.png)
+
+Результат выборки с использованием _LIKE_ остался без изменений:
+![img_9.png](05/img_9.png)
+
+А вот полнотекстовый поиск с использованием _to_tsvector_ стал использовать _Bitmap Heap Scan_.
+![img_11.png](05/img_11.png)
+
+
+---
+
 
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
