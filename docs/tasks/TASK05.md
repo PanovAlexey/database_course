@@ -88,4 +88,19 @@ Index Cond: (created_at = '2022-04-11 04:41:07.445285'::timestamp without time z
 
 ---
 
+### Использование составного индекса
+
+Для запросов, использующих фильтрацию сразу несколько полей создан отдельный индекс по дате создания и по автору. 
+Старые индексы удалены.
+
+[full-text indexes](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/multicolumn_indexes.sql)
+ 
+Как результат, выборка двух полей: _author_id_ и _created_at_ производится без обращения к таблице
+с использованием _Index Only Scan using_.
+
+![img_14.png](05/img_14.png)
+
+---
+
+
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
