@@ -70,5 +70,22 @@ Index Cond: (created_at = '2022-04-11 04:41:07.445285'::timestamp without time z
 
 ---
 
+### Использование частичного индекса
+
+Частичный индекс по полю _created_at_ для записей младше _'2022-04-11 04:38:36.915911'_.
+
+[full-text indexes](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/partial_index.sql)
+
+После построения индекса запросы с использованием фильтру по дате создания до указанной даты производятся
+с помощью _Index Only Scan using_
+
+![img_12.png](05/img_12.png)
+
+Запросы с использованием фильтра по дате, значение которой не вошло в частичный индекс (сдвинули разрешенный период на 1 сутки)
+производится с помощью _Seq Scan on events_
+
+![img_13.png](05/img_13.png)
+
+---
 
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
