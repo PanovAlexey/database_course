@@ -11,8 +11,9 @@
 
 Для возможности последующего анализа индекса предварительно необходимо заполнить таблицу большим количеством данных.
 
-[код заполнения таблицы событий случайными данными](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/fill_event_table.sql)
+[код заполнения таблицы событий](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/fill_event_table.sql)
 
+Индексов в таблице на данный момент нет.
 При запросе на чтение с использованием фильтрации по _created_at_ запланировано использование _sequence scan_ и ожидается,
 что будет прочитано _20099940_ строк.
 
@@ -56,7 +57,7 @@ Index Cond: (created_at = '2022-04-11 04:41:07.445285'::timestamp without time z
 ![img_7.png](05/img_7.png)
 
 Для построения полнотекстового индекса по полю _description_ использовался следующий код:
-[full-text indexes](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/text_indexes.sql)
+[код создания полнотекстового индекса](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/text_indexes.sql)
 
 Размер текстового индекса составил более 1.6 гигабайт.
 ![img_8.png](05/img_8.png)
@@ -74,7 +75,7 @@ Index Cond: (created_at = '2022-04-11 04:41:07.445285'::timestamp without time z
 
 Частичный индекс по полю _created_at_ для записей младше _'2022-04-11 04:38:36.915911'_.
 
-[full-text indexes](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/partial_index.sql)
+[код создания частичного индекса](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/partial_index.sql)
 
 После построения индекса запросы с использованием фильтру по дате создания до указанной даты производятся
 с помощью _Index Only Scan using_
@@ -93,7 +94,7 @@ Index Cond: (created_at = '2022-04-11 04:41:07.445285'::timestamp without time z
 Для запросов, использующих фильтрацию сразу несколько полей создан отдельный индекс по дате создания и по автору. 
 Старые индексы удалены.
 
-[full-text indexes](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/multicolumn_indexes.sql)
+[код создания составного индекса](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/05/multicolumn_indexes.sql)
  
 Как результат, выборка двух полей: _author_id_ и _created_at_ производится без обращения к таблице
 с использованием _Index Only Scan using_.
