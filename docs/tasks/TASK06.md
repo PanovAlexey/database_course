@@ -31,6 +31,16 @@
 Что полностью совпадает с результатом, достигнутым на прошлом шаге без использования CTE.
 
 ---
- 
+
+### Подсчет количества очков по всем игрокам за текущий код и за предыдущий с помощью функцию LAG
+
+[код получения суммы очков с помощью оконной функции](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/06/window_function_lag.sql)
+
+Результат выполнения данного кода выглядит так:
+
+![img_3.png](img_3.png)
+
+---
+
 
 [На главную](https://github.com/PanovAlexey/database_course/blob/main/README.md)
