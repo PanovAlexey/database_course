@@ -15,3 +15,4 @@
 3. [[Task 3]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK03.md) DDL.
 4. [[Task 4]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK04.md) DML.
 5. [[Task 5]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK05.md) Индексы.
+6. [[Task 6]](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/TASK06.md) CTE.
