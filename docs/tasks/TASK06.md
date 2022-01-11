@@ -6,6 +6,7 @@
 данные.
 
 [код создания таблицы](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/06/create_table.sql)
+
 [код наполнения таблицы](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/06/insert_data_into_table.sql)
 
 
@@ -32,7 +33,7 @@
 
 ---
 
-### Подсчет количества очков по всем игрокам за текущий код и за предыдущий с помощью функцию LAG
+### Подсчет количества очков по всем игрокам за текущий код и за предыдущий с помощью функции LAG
 
 [код получения суммы очков с помощью оконной функции](https://github.com/PanovAlexey/database_course/blob/main/docs/tasks/06/window_function_lag.sql)
 
