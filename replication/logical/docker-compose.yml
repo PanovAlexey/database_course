@@ -1,0 +1,31 @@
+version: '3.5'
+services:
+  postgres_master:
+    build: ./master
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: user_login
+      POSTGRES_PASSWORD: user_pass
+      POSTGRES_DB: postgres
+    networks:
+      default:
+        aliases:
+          - pg_cluster
+  postgres_slave:
+    build: ./slave
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: user_login
+      POSTGRES_PASSWORD: user_pass
+      POSTGRES_DB: postgres
+      PG_MASTER_USER: user_login
+      PG_MASTER_PASSWORD: user_pass
+      PG_MASTER_DB: postgres
+      PG_MASTER_HOST: postgres_master
+      PG_MASTER_PORT: 5432
+    networks:
+      default:
+        aliases:
+          - pg_cluster
