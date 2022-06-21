@@ -1,5 +1,7 @@
 ## Task 6
 
+## Физическая репликация
+
 ### Настройка master-ноды 
 ```
 cat >> ${PGDATA}/postgresql.conf <<EOF
@@ -36,6 +38,37 @@ slave-ноде.
 При попытке добавить новые или изменить старые данные на slave возникает ошибка:
 ![img.png](07/img.png)
 
+
+---
+
+## Логическая репликация
+
+### Настройка master-ноды
+```
+cat >> ${PGDATA}/postgresql.conf <<EOF
+wal_level = hot_standby
+archive_mode = on
+archive_command = 'cd .'
+max_wal_senders = 4
+wal_keep_size = 128
+hot_standby = on
+EOF
+```
+
+### Настройка slave-ноды
+```
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+    create table test (id int);
+    create subscription test_subscription
+    connection 'host=$PG_MASTER_HOST port=$PG_MASTER_PORT user=$PG_MASTER_USER password=$PG_MASTER_PASSWORD dbname=$PG_MASTER_DB'
+    publication people_publication with (copy_data = false);
+EOSQL
+```
+
+### Основные отличия логической репликации от физической
+- Данные, появившиеся на master-ноде до создания slave-ноды не копируются на slave.
+- В slave-ноду тоже доступна запись новых данных, как и изменение уже имеющихся.
+- Как следствие, нет гарантий полного совпадения данных внутри нод.
 
 ---
 
